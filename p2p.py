@@ -17,7 +17,7 @@ BOOTSTRAP_LIST = [ "localhost:5997",
 
 for bootstrap in BOOTSTRAP_LIST:
     host, port = bootstrap.split(":")
-    point = TCP4ClientEndpoint(reactor, "localhost", 5999)
+    point = TCP4ClientEndpoint(reactor, host, port)
     d = connectProtocol(point, protocol)
     d.addCallback(gotProtocol)
 
